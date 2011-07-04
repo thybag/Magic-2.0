@@ -1,0 +1,376 @@
+/*
+Test
+
+@version 0.7
+@author Carl Saggs
+*/
+
+body {
+	background-color:#E9E9E9;
+	font-family: arial, verdana;
+	margin:0;padding:0;
+	font-size:12px;
+}
+/* Container stuff */
+.container{
+	background-color:#fff;
+	margin: 0 auto;
+	width:850px;
+}
+.container .flash {
+	background-color:yellow;
+	padding:6px;
+	margin-left:12px;
+	margin-right:12px;
+	margin-bottom:12px;
+}
+.clear {
+	clear:both;
+}
+/* Header */
+.header {
+	padding-top:15px;
+	height:100px;
+}
+.header .logo {
+	 float:left; 
+	 width:200px;
+	 padding-left:15px;	 
+}
+
+img {border:0;} /* Stop ie adding borders around every image ever. */
+
+.header .controls {
+	float:left;
+	width:630px;
+}
+
+ .header .controls .nav{
+	margin-left:10px;
+	margin-right:10px;
+	background-color:#135d70;
+	height:25px;
+}
+
+.header .controls .nav ul{
+	list-style:none;margin:0;padding:0;
+}
+ .header .controls .nav ul li{
+	
+	float:left;
+}
+.header .controls .nav ul li a{
+	text-align:center;
+	display:block;
+	width:113px;
+	padding:4px;
+	color:#fff;
+	font-size:1.1em;
+	text-decoration:none;
+	font-weight:bold;
+	border-left:solid 1px #1b7c95;
+	-webkit-transition: background 250ms ease;
+	-moz-transition: background 250ms ease;
+	-o-transition:background 250ms ease;
+	transition: background 250ms ease;
+}
+ .header .controls .nav ul li a:hover {
+	background-color:#18778f;
+	 
+
+}
+
+ .header .controls .login {
+	padding:10px;
+}
+.header .controls .form {
+	float:right;text-align:right;
+	width:260px;
+}
+.header .controls .form div input {margin-left:5px;}
+.header .controls input {margin:1px;padding:1px;}
+.footer .page_footer{
+	background-color:#18778f;
+	margin:12px;padding:5px;
+	color:#fff;
+
+}
+
+
+
+.content {
+	margin-left:12px;
+	margin-right:12px;
+}
+
+
+.content .box {
+	border: solid 1px #18778f;
+	margin-bottom:5px;
+}
+
+.content .box .title { 
+	background-color:#135d70;
+	padding:6px; 
+}
+.content .box .title h3{
+	color:#fff;
+	margin:0;
+	
+	display:inline;
+}
+.content .box .inner {
+	padding:4px;	
+}
+
+.jsnipShowHide {
+	margin:4px 2px;
+	clear:both;
+	color:#000;
+	overflow:hidden;
+}
+.jsnipShowHide .title {
+	-webkit-transition: background 0.4s ease-in;
+	-moz-transition: background 0.4s ease-in;
+	cursor:pointer;
+}
+.jsnipShowHide .title:hover {
+	background-color:#18778F;
+	-webkit-transition: background 0.3s ease-in;
+	-moz-transition: background 0.3s ease-in;
+}
+.jsnipShowHide .arrow {
+	padding:4px;
+	opacity: 0.5;
+	-webkit-transition: -webkit-transform 0.2s ease-in;
+	-moz-transition: -moz-transform 0.2s ease-in;
+}
+
+/* Footer */
+
+.container .footer .under_nav{
+	
+	padding:10px;
+	padding-top:0px;
+}
+
+/* Body */
+
+/*
+.container .content .title_bar{
+	
+	
+}
+.container .content .title_bar h3{
+		color:#fff;
+		padding:4px;
+		font-weight:bold;
+		font-size:1.3em;
+		margin:0;
+}
+
+.container .content .reg_form .form_itm{
+	height:30px;width:260px;
+}
+.container .content .reg_form .form_itm input{
+	float:right;margin:0;
+}
+
+.container .content .featured {
+
+float:left;
+
+}
+.container .content .fshort_mode{
+	width:650px;margin-right:0;
+}
+.container .content .cart {
+	float:left;
+	background-color:#E8EAE9;
+	width:225px;
+	border: solid 1px #5C5C5C;
+}
+.container .content .cart .list{
+padding:4px;
+height:156px;
+overflow:auto;
+
+}
+.container .content .cart .list div {padding:2px;}
+.container .content .cart h4 {
+	margin:0; font-size:1.3em;
+	background-color:#5C5C5C;padding:4px;color:#fff;
+}
+.container .content .cart .checkout a{
+	display:block;
+	padding:2px;background-color:#5C5C5C;color:#fff;text-decoration:none;
+	text-align:right;
+}
+.container .content .dash{
+	background-color:#000F42;  color:#fff;
+	height:24px;
+	margin-bottom:10px;
+}
+
+.container .content .dash ul { list-style:none;padding:0;margin:0;}
+.container .content .dash ul li { float:left;}
+.container .content .dash ul li a{ 
+	display:block; padding:4px;
+	width:50px; 
+	float:left; 
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+}
+.container .content .dash ul li a.selected{
+background-color:#263566;
+}
+.container .content .dash ul li a:hover {
+	background-color: #263566;
+}
+.list_block{
+	margin-bottom:10px;
+	}
+
+
+.container .content .featured .feature_image {
+	background-image: url(img/crysis.jpg); height:200px;
+	background-repeat:no-repeat;
+	
+}
+.container .content .featured .feature_image .fill{
+	height:135px;
+}
+.container .content .featured .feature_image .overlay {
+	
+	color:#fff;
+	background-color:#000;
+	opacity:0.75;
+ Cuz IE doesnt like valid css 
+	filter: alpha(opacity=75);
+	 Cuz IE doesnt like valid css 
+	padding:10px;
+	cursor: pointer;
+}
+.container .content .col {
+	width:430px;
+	float:left;
+}
+.container .content .col_r {
+	margin-left:15px;
+}
+.container .content .block {
+	border:solid 1px grey;
+}
+
+.container .content .lcol{
+	width:640px;margin-right:5px;
+	float:left;
+	
+}
+
+
+.displaybox .text {
+	min-height:80px;
+	padding:4px;
+}
+.displaybox .text .get {
+	float:right; 
+	margin:6px;
+	width:100px;
+}
+.displaybox .text .get img{
+	width:100px; 
+	height:100px;
+	float:left;
+}
+a.buybutton{
+	width:100px; 
+	height:22px;
+	display:block;
+	background-color: #263566;
+	float:left;
+	color:#fff;
+	font-size:1.2em;
+	text-decoration:none;
+	font-weight:bold;
+	text-align:center;
+	padding-top:4px;
+	
+}
+.listbox .text{
+	height:35px;
+}
+.listbox .text img {
+	width:50px; height:50px;float:left;margin-right:5px;
+}
+.listbox .text .get{
+	float:right;margin:10px;
+}
+
+.displaybox .details{
+	padding:4px;
+}
+
+
+.container .content .block h4{
+	background-color:#263566;
+	display:block;
+	color:#fff;
+	padding:5px;
+	font-weight:bold;
+	font-size:1.3em;
+	margin:0;
+}
+.container .content .block h4 a{
+	color:#fff;
+	text-decoration:none;
+	}
+.container .content .block .app_line {
+	height:45px;padding:2px;
+}
+.container .content .block .app_line .buy{
+	padding-right:2px;
+}
+.container .content .block .app_line .buy a{ width:60px;}
+.container .content .block .app_line a{
+	padding-top:2px;
+	float:left;
+	text-decoration:none;
+	display:block;width:250px;
+}
+.container .content .block .app_line .extra{
+	width:320px;float:left;margin-top:2px;
+
+}
+.container .content .block .app_line img{
+	float:left;padding-right:5px;
+	width:40px;height:40px;
+}
+.container .content .block .app_line .buy{
+	margin:2px;
+	float:right;
+}
+.container .content .block .base{
+	background-color:#263566;
+	padding:2px;text-align:right;
+}
+.container .content .block .base a{
+	color:#fff;text-decoration:none;
+}
+.container .content .list_block img {
+	float:left;height:78px;width:78px;padding-right:5px;
+}
+.container .content .list_block h4.alt{
+	background-color:#929ab2;
+}
+.container .content .list_block h4.alt a{color:#000;}
+.container .content .innerContainer{
+	margin-left:12px;
+	margin-right:12px;
+}
+.creditBox{
+	float:left; height:100px;width:180px;margin:9px;padding:8px; text-align:center;
+	font-size:1.6em; border:solid 2px #E8EAE9;
+}
+*/
