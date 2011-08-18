@@ -230,7 +230,11 @@ class Session {
 		}
 	}
 	public function getUserData(){
-		return $this->get('usession.info');
+		if($this->check('usession.uid')){
+			return $this->get('usession.info');
+		}else{
+			return null;
+		}
 	}
 	public function getUserInfo($idx){
 		if(isset($_SESSION['usession.info'][$idx])){
