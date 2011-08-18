@@ -24,72 +24,7 @@ class User_model extends Model {
 		//Attempt to query user details
 		return $this->getRow($uid);
 	}
-	
-	/**
-	 * Credit User
-	 * Adds purchased credits to a user account + updates audit log with action
-	 * 
-	 * @param $user_id User's ID
-	 * @param $credits Amount of credits user has purchased.
-	 * @return unknown_type
-	 */
-	function creditUser($user_id,$credits){
-		//Ensure values are ints
-		$cost = (int)$credits;
-		$uid = (int)$user_id;
-		//Get time and create hash of audit row
-		$time = time();
-		$dataHash = sha1($time.'Credit Purchase'.'Google Checkout'.$uid.'credits'.$cost);
 		
-		try{
-			//Get the secret key.
-			$current_key = $this->getCurrentKey();
-			//Start transaction
-			$this->db->beginTransaction();
-			//Give user their credits
-			$this->db->exec("UPDATE user SET credits=credits+{$cost} WHERE id = {$uid}");
-			//update secret key
-			$this->db->exec("UPDATE store_info SET log_key=sha1(log_key) WHERE id = 1");
-			//Record transaction, + encripted hash of data useing the current log key (one we had before the one we just generated)
-			$this->db->exec("INSERT INTO audit_log 
-							 VALUES ('', '{$time}', 'Credit Purchase', 'Google Checkout','{$uid}', 'credits', '{$cost}', 
-							 AES_ENCRYPT('$dataHash','$current_key'))");
-			//Save it all in to the db
-			$this->db->commit();
-		}
-		catch(PDOException $e)
-	    {
-	    	//Somthing went wrong? roll back changes and return false.
-	    	$this->db->rollBack();
-	    	echo $e->getMessage();
-	    	return false;
-	    }
-	    //Return true if it all worked :)
-	    return true;
-	}
-	
-	/**
-	 * Get Current key
-	 * Returns the secret key used to encrypt audit logs
-	 * 
-	 * @return String $SecretKey
-	 */
-	private function getCurrentKey(){
-		try{
-			//Query the store table to get the secret key.
-			$query = $this->db->prepare('SELECT log_key FROM store_info WHERE id = 1');
-			$query->execute();
-		}
-		catch(PDOException $e)
-	    {
-	    	//cacth error
-	    	echo $e->getMessage();
-	    }
-	    //Get result and return key portion as string.
-	     $q = $query->fetch();
-	     return $q[0];
-		
-	}
 	
 	/**
 	 * Check if a given user name is free for use.
@@ -158,12 +93,14 @@ class User_model extends Model {
 		//Insert new user record in to DB. Lotsa strings
 		try{
 			$time = time();
-			$query = $this->db->prepare('INSERT INTO user (username, email, password, usergroup, date_registered) VALUES (:user, :email, :pass, :ug, :regdate)');
+			$query = $this->db->prepare('INSERT INTO user (username, email, password, usergroup, date_registered, ip) VALUES (:user, :email, :pass, :ug, :regdate, :ip)');
 			$query->bindParam(':user', 	$user, 	PDO::PARAM_STR, 255);
 			$query->bindParam(':email', $email, 	PDO::PARAM_STR, 255);
 			$query->bindParam(':pass', 	$password, 	PDO::PARAM_STR, 255);
 			$query->bindParam(':ug', 	$usergroup, PDO::PARAM_INT);
 			$query->bindParam(':regdate', 	$time, 	PDO::PARAM_STR, 255);
+			$query->bindParam(':ip', 	$_SERVER['REMOTE_ADDR'], 	PDO::PARAM_STR, 255);
+			 
 			$query->execute();
 			//Return the id of the last created user.
 			return $this->getRow($this->db->lastInsertId());

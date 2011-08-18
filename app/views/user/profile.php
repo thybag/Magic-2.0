@@ -16,7 +16,7 @@
  .form {}
  .form p {padding:2px 4px;margin:0; vertical-align:middle;}
  .form label {width:120px; display: inline-block;}
- .form input {width:180px;}
+ .form input {width:180px; border:solid 1px #18778F;padding:2px;}
  .form .save {border:solid 1px;padding:2px;background-color:#18778F;width:100px;cursor:pointer;color:#fff;}
  
  .infoBox {
@@ -53,26 +53,25 @@
 			<div class='title'><h3>Update your profile</h3></div>
 			<div class='inner'>
 				<form class='form'>
-				<p>
-				<label>Email:</label><input />
-				</p>
-				<p>
-				<label>Website:</label><input /> Error!
-				</p>
-				<p> 
-				<label>DOB:</label><input />
-				</p>
-				<p>
-				<label>Gender:</label><input />
-				</p>
-				
-				<p>
-				<label style='margin-top:10px;float:left;'>Bio:</label>
-				<textarea style="width:490px;"></textarea>
-				</p>
-				<p style='text-align:right;'>
-				<input type='submit' class='save' value='Save' />
-				</p>
+					<p>
+						<label>Email:</label><input value='<?php echo $data['email']?>'/>
+					</p>
+					<p>
+						<label>Website:</label><input  value='<?php echo $data['website']?>'/> Error!
+					</p>
+					<p> 
+						<label>DOB:</label><input value='<?php echo $data['dob']?>' />
+					</p>
+					<p>
+						<label>Gender:</label><input  value='<?php echo $data['gender']?>'/>
+					</p>
+					<p>
+						<label style='margin-top:10px;float:left;'>Bio:</label>
+						<textarea style="width:490px;height:80px;border:solid 1px #18778F;"><?php echo $data['bio']?></textarea>
+					</p>
+					<p style='text-align:right;'>
+						<input type='submit' class='save' value='Save' />
+					</p>
 				</form>
 				
 			

@@ -58,8 +58,11 @@ class User extends Controller {
 	}
 	
 	public function profile(){
+		
+		if(!$this->session->userSessionExist()) $this->redirect('/error');
+		
 		if($this->requestMethod() !== 'POST'){
-			$this->getView('profile');
+			$this->getView('profile',$this->session->getUserData());
 		} else {
 			
 			
