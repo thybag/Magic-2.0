@@ -1,12 +1,13 @@
 <?php 
 /**
- * Quick n Dirty PHP MVC
+ * Magic 2.0
  * 
  * Basic Class's
  * Contains the base Controller and Model Class's
  * 
- * @author Carl Saggs
- * @version 2011.03.05
+ * @author Carl Saggs <carl@userbag.co.uk>
+ * @version 2011.08.28
+ * @package Magic.Core
  * 
  */
 
@@ -277,7 +278,7 @@ class Model {
 class Router {
 	
 	private static $paths = array();
-	private $path;
+	//private $path;
 	
 	
 	/**
@@ -311,6 +312,38 @@ class Router {
 		}
 		return null;
 	}
+	/**
+	 * Reverse routing function
+	 * 
+	 * @param unknown_type $location
+	 * @return unknown_type
+	 */
+	private static function reverseRoute($location){
+		
+		//check against router table
+		foreach(self::$paths AS $path => $route){
+			if($route['controller'] == $location['controller']){
+				if($location['action']){
+					if($route['method'] == $location['action']) return $path;
+				}else{
+					if($route['method'] == 'index') return $path;
+				}
+			}
+		}
+
+		return $location['controller'].'/'.$location['action'] ;
+	
+	}
+	public static function url($location, $output = true){
+		$path = Config::get('base_dir').'/'.self::reverseRoute($location);
+		
+		if($output){
+			echo $path;
+		}else{
+			return $path;
+		}
+	}
+	
 	
 	private function parsePath($url){
 		

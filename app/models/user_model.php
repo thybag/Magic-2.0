@@ -1,6 +1,6 @@
 <?php 
 /**
- * Quick n Dirty PHP MVC
+ * Magic 2.0
  * 
  * User Model
  * Provides database functions for User, get, update, create etc.

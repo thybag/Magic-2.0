@@ -1,12 +1,13 @@
 <?php
 /**
- * Quick n Dirty PHP MVC
+ * Magic 2.0
+ * A simple MVC framework aimed at rapidly creating user oriented websites.
  * 
- * A tiny little MVC framework devloped for this project
  * This page handles new requests to the framework, Parsing the url and includeing the required files.
  * 
- * @author Carl Saggs
- * @version 2011.03.10
+ * @author Carl Saggs <carl@userbag.co.uk>
+ * @version 2011.08.28
+ * @package Magic.Core
  * 
  */
 

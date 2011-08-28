@@ -1,13 +1,13 @@
 <?php 
 /**
- * Quick n Dirty PHP MVC
+ * Magic 2.0
  * 
  * User Controller
  * Used to manage users on the site, logins, registrations and credit purchases
  * 
  * @author Carl Saggs
  * @version 2011.03.10
- * 
+ * @package Magic.User
  */
 class User extends Controller {
 	

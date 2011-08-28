@@ -7,7 +7,8 @@
 		<title>Magic 2.0</title>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 		<link href='style/global.css' rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src='js/jsnip.js'></script> 
+		<script type="text/javascript" src='js/base.min.js'></script> 
+		<script type="text/javascript" src='js/jsnip.min.js'></script> 
 	</head>
 	<body>
 		<div class='container'>

@@ -49,10 +49,10 @@
 	 	</div>
 	</div>
 	<div class='twoColRight'>
-		<div class='jsnipShowHide box' itemType="open">
+		<div class='jsnipShowHide box' data-mode="open">
 			<div class='title'><h3>Update your profile</h3></div>
 			<div class='inner'>
-				<form class='form'>
+				<form class='form' action='<?php Router::url(array("controller"=>"user", "action"=>"saveProfile")); ?>'>
 					<p>
 						<label>Email:</label><input value='<?php echo $data['email']?>'/>
 					</p>

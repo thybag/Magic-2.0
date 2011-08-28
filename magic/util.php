@@ -1,14 +1,14 @@
 <?php 
 /**
- * Quick n Dirty PHP MVC
+ * Magic 2.0
  * 
  * Utility Class's
  * This page includes a number of useful class's needed to support the appliction.
  * This includes: Util, Config and Session
  * 
- * @author Carl Saggs
- * @version 2011.03.10
- * 
+ * @author Carl Saggs <carl@userbag.co.uk>
+ * @version 2011.08.28
+ * @package Magic.Core
  */
 
 

@@ -1,13 +1,13 @@
 <?php 
 /**
- * Quick n Dirty PHP MVC
+ * Magic 2.0
  * 
  * Page Controller
  * Just used for static pages around the site.
  * 
  * @author Carl Saggs
  * @version 2011.03.11
- * 
+ * @package Magic.Page
  */
 class Page extends Controller {
 
